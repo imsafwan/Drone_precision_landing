@@ -1,0 +1,7 @@
+<launch>
+
+    <!-- Run the px4_gazebo_launch.sh script directly in the same terminal -->
+    <node name="px4_setup" pkg="Drone_precision_landing_Gazebo" type="px4_gazebo_launch.sh" output="screen" args="/home/safwan/PX4-Autopilot" />
+    
+
+</launch>
