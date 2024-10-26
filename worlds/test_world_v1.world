@@ -25,7 +25,13 @@
       <elevation>0</elevation>
     </spherical_coordinates>
 
-    
+    <!-- Add aruco marker -->
+    <model name="aruco_marker">
+      <include>
+      <uri>model://aruco_marker</uri>
+      <pose>4 -4 0.025 0 0 0</pose>
+      </include>
+    </model>
 
     <physics name='default_physics' default='0' type='ode'>
       <gravity>0 0 -9.8066</gravity>

@@ -3,14 +3,16 @@
     <arg name="x" default="0"/>
     <arg name="y" default="0"/>
     <arg name="z" default="0"/>
-    <arg name="vehicle" default="iris"/>
+    <arg name="vehicle" default="iris_customized"/>
     <arg name="world" default="test_world_v1"/>
+
+    <env name="GAZEBO_MODEL_PATH" value="$(find Drone_precision_landing_Gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
+
 
     <!-- Set the PX4_SIM_MODEL environment variable -->
     <env name="PX4_SIM_MODEL" value="$(arg vehicle)" />
 
-    <env name="GAZEBO_MODEL_PATH" value="$(find Drone_precision_landing_Gazebo)/models:$(optenv GAZEBO_MODEL_PATH)" />
-
+    
 
     <!-- PX4 SITL -->
     <node name="sitl" pkg="px4" type="px4" output="screen"
@@ -28,5 +30,5 @@
 
     <!-- Spawn the UAV model in Gazebo -->
     <node name="spawn_$(arg vehicle)" pkg="gazebo_ros" type="spawn_model" output="screen"
-          args="-sdf -file $(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf -model $(arg vehicle) -x $(arg x) -y $(arg y) -z $(arg z)"/>
+          args="-sdf -file $(find Drone_precision_landing_Gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf -model $(arg vehicle) -x $(arg x) -y $(arg y) -z $(arg z)"/>
 </launch>
